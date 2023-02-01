@@ -11,6 +11,7 @@ let service1 = prompt('Какой дополнительный тип услуг
 let servicePrice1 = parseInt(prompt('Сколько это будет стоить?'));
 
 let service2 = prompt('Какой дополнительный тип услуги нужен?');
+
 let servicePrice2 = parseInt(prompt('Сколько это будет стоить?'));
 
 let fullPrice = parseInt(screenPrice + servicePrice1 + servicePrice2);
