@@ -4,22 +4,18 @@ let screenPrice = parseInt(prompt('Сколько будет стоить дан
 
 let rollback = 50;
 
-let adaptive = prompt('Нужен ли адаптив на сайте?');
-if (adaptive == 'Да'){
-    adaptive = true;
-} else {
-    adaptive = false;
-}
+let adaptive = confirm('Нужен ли адаптив на сайте?');
+
 
 let service1 = prompt('Какой дополнительный тип услуги нужен?');
 let servicePrice1 = parseInt(prompt('Сколько это будет стоить?'));
 
-let service2 = parseInt(prompt('Какой дополнительный тип услуги нужен?'));
+let service2 = prompt('Какой дополнительный тип услуги нужен?');
 let servicePrice2 = parseInt(prompt('Сколько это будет стоить?'));
 
 let fullPrice = parseInt(screenPrice + servicePrice1 + servicePrice2);
 
-let servicePercentPrice = Math.ceil(fullPrice - rollback);
+let servicePercentPrice = fullPrice - Math.ceil(fullPrice * (rollback/100));
 console.log(servicePercentPrice);
 
 if (fullPrice >= 30000){
