@@ -1,5 +1,8 @@
-let title = prompt('Как называется ваш проект?');
+let title = prompt('Как называется ваш проект?').trim();
+
 let screens = prompt('Какие типы экранов нужно разработать?');
+console.log(screens);
+
 let screenPrice = parseInt(prompt('Сколько будет стоить данная работа?'));
 
 let rollback = 50;
@@ -17,7 +20,7 @@ let servicePrice2 = parseInt(prompt('Сколько это будет стоит
 let fullPrice = parseInt(screenPrice + servicePrice1 + servicePrice2);
 
 let servicePercentPrice = fullPrice - Math.ceil(fullPrice * (rollback/100));
-console.log(servicePercentPrice);
+
 
 if (fullPrice >= 30000){
     console.log('Даем скидку в 10%');
@@ -28,6 +31,33 @@ if (fullPrice >= 30000){
 } else if(fullPrice <= 0){
     console.log('Что то пошло не так');
 }
+
+
+// let allServicePrices;
+
+const getAllServicePrices = function () {
+    return parseInt(screenPrice + servicePrice1 + servicePrice2);
+}
+let allServicePrices = getAllServicePrices();
+
+
+function getFullPrice (){
+    return parseInt(screenPrice + allServicePrices);
+}
+fullPrice = getFullPrice();
+
+
+const getTitle = function (){
+    return title[0].toUpperCase() + title.substring(1).toLowerCase();    
+}
+let test = getTitle();
+console.log(test);
+
+const getServicePercentPrices = function (){
+    return allServicePrices  * (rollback/100);
+}
+servicePercentPrice = getServicePercentPrices();
+console.log(servicePercentPrice);
 
 
 // console.log(typeof title);
