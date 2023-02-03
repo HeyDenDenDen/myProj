@@ -18,27 +18,19 @@ let service2 = prompt('Какой дополнительный тип услуг
 let servicePrice2 = parseInt(prompt('Сколько это будет стоить?'));
 
 let fullPrice = parseInt(screenPrice + servicePrice1 + servicePrice2);
+console.log(fullPrice);
 
-let servicePercentPrice = fullPrice - Math.ceil(fullPrice * (rollback/100));
+// let servicePercentPrice = fullPrice - Math.ceil(fullPrice * (rollback/100));
 
-
-if (fullPrice >= 30000){
-    console.log('Даем скидку в 10%');
-} else if (fullPrice >= 15000 && fullPrice < 30000){
-    console.log('Даем скидку в 5%');
-} else if (fullPrice < 15000 && fullPrice > 0){
-    console.log('Скидка не предусмотрена');
-} else if(fullPrice <= 0){
-    console.log('Что то пошло не так');
-}
 
 
 // let allServicePrices;
 
 const getAllServicePrices = function () {
-    return parseInt(screenPrice + servicePrice1 + servicePrice2);
+    return parseInt(servicePrice1 + servicePrice2);
 }
 let allServicePrices = getAllServicePrices();
+console.log(allServicePrices);
 
 
 function getFullPrice (){
@@ -50,14 +42,22 @@ fullPrice = getFullPrice();
 const getTitle = function (){
     return title[0].toUpperCase() + title.substring(1).toLowerCase();    
 }
-let test = getTitle();
-console.log(test);
 
 const getServicePercentPrices = function (){
-    return allServicePrices  * (rollback/100);
+    return fullPrice  * (rollback/100);
 }
-servicePercentPrice = getServicePercentPrices();
-console.log(servicePercentPrice);
+let servicePercentPrice = getServicePercentPrices();
+
+
+if (fullPrice >= 30000){
+    console.log('Даем скидку в 10%');
+} else if (fullPrice >= 15000 && fullPrice < 30000){
+    console.log('Даем скидку в 5%');
+} else if (fullPrice < 15000 && fullPrice > 0){
+    console.log('Скидка не предусмотрена');
+} else if(fullPrice <= 0){
+    console.log('Что то пошло не так');
+}
 
 
 // console.log(typeof title);
