@@ -3,7 +3,16 @@ let title = prompt('Как называется ваш проект?').trim();
 let screens = prompt('Какие типы экранов нужно разработать?');
 console.log(screens);
 
-let screenPrice = parseInt(prompt('Сколько будет стоить данная работа?'));
+const isNumber = function(num){
+    return !isNaN(parseFloat(num)) && isFinite(num)
+}
+
+let screenPrice;
+
+do {
+    screenPrice = parseInt(prompt('Сколько будет стоить данная работа?'));
+}
+while(!isNumber(screenPrice))
 
 let rollback = 50;
 
@@ -11,14 +20,21 @@ let adaptive = confirm('Нужен ли адаптив на сайте?');
 
 
 let service1 = prompt('Какой дополнительный тип услуги нужен?');
-let servicePrice1 = parseInt(prompt('Сколько это будет стоить?'));
+let servicePrice1;
+do {
+    servicePrice1 = parseInt(prompt('Сколько это будет стоить?'));
+}
+while(!isNumber(servicePrice1))
 
 let service2 = prompt('Какой дополнительный тип услуги нужен?');
-
-let servicePrice2 = parseInt(prompt('Сколько это будет стоить?'));
+let servicePrice2;
+do {
+    servicePrice2 = parseInt(prompt('Сколько это будет стоить?'));
+}
+while(!isNumber(servicePrice2))
 
 let fullPrice = parseInt(screenPrice + servicePrice1 + servicePrice2);
-console.log(fullPrice);
+console.log(fullPrice + "ФУЛПРАЙС");
 
 // let servicePercentPrice = fullPrice - Math.ceil(fullPrice * (rollback/100));
 
@@ -30,7 +46,7 @@ const getAllServicePrices = function () {
     return parseInt(servicePrice1 + servicePrice2);
 }
 let allServicePrices = getAllServicePrices();
-console.log(allServicePrices);
+console.log(allServicePrices + "АЛЛСЕРВИСПРАЙС");
 
 
 function getFullPrice (){
