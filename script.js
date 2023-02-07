@@ -38,6 +38,7 @@ console.log(fullPrice);
 const getAllServicePrices = function () {
 
     let sum = 0;
+    let numb;
 
     for(let i = 0; i < 2 ; i++){
         if(i === 0){
@@ -47,9 +48,10 @@ const getAllServicePrices = function () {
         }
 
         do {
-            sum += +prompt('Сколько это будет стоить?');
+            numb = parseFloat(prompt('Сколько это будет стоить?'));
         }
-        while(!isNumber(sum))
+        while(!isNumber(numb))
+        sum += numb;
     }
     
     return sum;
