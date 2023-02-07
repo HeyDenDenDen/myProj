@@ -19,22 +19,15 @@ let rollback = 50;
 let adaptive = confirm('Нужен ли адаптив на сайте?');
 
 
-let service1 = prompt('Какой дополнительный тип услуги нужен?');
+let service1;
 let servicePrice1;
-do {
-    servicePrice1 = parseInt(prompt('Сколько это будет стоить?'));
-}
-while(!isNumber(servicePrice1))
 
-let service2 = prompt('Какой дополнительный тип услуги нужен?');
+
+let service2;
 let servicePrice2;
-do {
-    servicePrice2 = parseInt(prompt('Сколько это будет стоить?'));
-}
-while(!isNumber(servicePrice2))
 
 let fullPrice = parseInt(screenPrice + servicePrice1 + servicePrice2);
-console.log(fullPrice + "ФУЛПРАЙС");
+console.log(fullPrice);
 
 // let servicePercentPrice = fullPrice - Math.ceil(fullPrice * (rollback/100));
 
@@ -43,10 +36,26 @@ console.log(fullPrice + "ФУЛПРАЙС");
 // let allServicePrices;
 
 const getAllServicePrices = function () {
-    return parseInt(servicePrice1 + servicePrice2);
+
+    let sum = 0;
+
+    for(let i = 0; i < 2 ; i++){
+        if(i === 0){
+            service1 = prompt('Какой дополнительный тип услуги нужен?');
+        } else if( i === 1){
+            service2 = prompt('Какой дополнительный тип услуги нужен?');
+        }
+
+        do {
+            sum += +prompt('Сколько это будет стоить?');
+        }
+        while(!isNumber(sum))
+    }
+    
+    return sum;
 }
 let allServicePrices = getAllServicePrices();
-console.log(allServicePrices + "АЛЛСЕРВИСПРАЙС");
+
 
 
 function getFullPrice (){
