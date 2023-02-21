@@ -11,7 +11,7 @@ const appData = {
     servicePercentPrice: 0,
     start: function(){
         appData.asking();
-        appData.getAllServicePrices();
+        appData.addPrices();
         appData.getFullPrice();
         appData.getServicePercentPrices();
         appData.getTitle(appData.title);
@@ -68,7 +68,12 @@ const appData = {
     
         appData.adaptive = confirm('Нужен ли адаптив на сайте?');
     },
-    getAllServicePrices: function () {
+    addPrices: function(){
+
+        for(let screen of appData.screens){
+            appData.screenPrice += +screen.price
+        }
+
         for(let key in appData.services){
             appData.allServicePrices += appData.services[key]
         }
