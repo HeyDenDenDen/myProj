@@ -110,5 +110,38 @@ const appData = {
 appData.start();
 
 
+let title = document.getElementsByTagName('h1')[0];
+console.log(title);
+
+const calculate = document.getElementsByClassName('handler_btn')[0];
+console.log(calculate);
+
+const reset = document.getElementsByClassName('handler_btn')[1];
+console.log(reset);
+
+const plus = document.querySelector('.screen-btn');
+console.log(plus);
+
+const percentOne = document.querySelectorAll('.other-items.percent');
+console.log(percentOne);
+
+const numberTwo = document.querySelectorAll('.other-items.number');
+console.log(numberTwo);
+
+const rangeInput = document.querySelector('.rollback input');
+console.log(rangeInput);
+
+const rangeValue = document.querySelector('.rollback .range-value');
+console.log(rangeValue);
+
+const totalInput = document.getElementsByClassName('total-input');
+
+for (let i = 0; i < totalInput.length; i++) {
+    console.log(totalInput[i]);
+}
+
+let screen = document.querySelectorAll('.screen');
+console.log(screen);
+
 
 
